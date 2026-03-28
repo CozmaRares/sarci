@@ -1,8 +1,8 @@
 import { createComputed, For } from "solid-js";
-import { dotts, defaultDott } from "../logic/dotts";
-import { customDotts } from "../logic/localStorage";
-import Card from "../components/Card";
-import DottUrl from "../components/DottUrl";
+import { dotts, defaultDott } from "@/lib/dotts";
+import { customDotts } from "@/lib/localStorage";
+import Card from "@/components/Card";
+import DottUrl from "@/components/DottUrl";
 
 export default function Dotts() {
     let categories: ReturnType<typeof getCategories>;

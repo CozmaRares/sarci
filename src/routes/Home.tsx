@@ -1,17 +1,20 @@
 import Search from "lucide-solid/icons/search";
-import Card from "../components/Card";
-import CopyInput from "../components/CopyInput";
-import OutgoingLink from "../components/OutgoingLink";
+import Card from "@/components/Card";
+import CopyInput from "@/components/CopyInput";
+import OutgoingLink from "@/components/OutgoingLink";
+import { QUERY_PARAM } from "@/lib/constants";
+import { redirect } from "@/lib/redirect";
+import { useFullUrl } from "@/hooks/useFullUrl";
 
 export default function Home() {
+    const fullUrl = useFullUrl();
+
     let searchInputRef!: HTMLInputElement;
     let searchFormRef!: HTMLFormElement;
 
     const search = async (e: Event) => {
         e.preventDefault();
-        const url = new URL(window.location.href);
-        url.searchParams.set("q", searchInputRef.value);
-        window.location.replace(url);
+        redirect(searchInputRef.value, false);
     };
 
     return (
@@ -54,7 +57,9 @@ export default function Home() {
                                 Add this url as a custom search engine in your
                                 browser
                             </p>
-                            <CopyInput value="https://sarci.raru.dev/?q=%s" />
+                            <CopyInput
+                                value={`${fullUrl()}?${QUERY_PARAM}=%s`}
+                            />
                         </div>
 
                         <div class="flex flex-row items-center gap-2">

@@ -7,15 +7,15 @@ import {
 } from "solid-js";
 import Trash2 from "lucide-solid/icons/trash-2";
 import Pencil from "lucide-solid/icons/pencil";
-import Card from "../components/Card";
+import Card from "@/components/Card";
 import {
     addCustomDott,
     deleteCustomDott,
     getCustomDott,
-} from "../logic/localStorage";
-import DottUrl from "../components/DottUrl";
-import CustomDottList from "../components/CustomDottList";
-import type { Dott, DottValue } from "../logic/dotts";
+} from "@/lib/localStorage";
+import DottUrl from "@/components/DottUrl";
+import CustomDottList from "@/components/CustomDottList";
+import type { Dott, DottValue } from "@/lib/dotts";
 
 const defaultFormData = {
     key: "",

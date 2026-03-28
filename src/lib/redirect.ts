@@ -3,18 +3,18 @@ import { getCustomDott } from "./localStorage";
 
 const DOTT_REGEX = /\.(\S+)/gi;
 
-export default function redirect(query: string) {
+export function redirect(query: string, replaceUrl = true) {
     const candidates = query.matchAll(DOTT_REGEX);
 
     // keep trying for each candidate
     for (const candidate of candidates)
-        if (tryDott(candidate[1].toLowerCase(), query)) return;
+        if (tryDott(candidate[1].toLowerCase(), query, replaceUrl)) return;
 
     // use default
-    tryDott(defaultDott, query);
+    tryDott(defaultDott, query, replaceUrl);
 }
 
-function tryDott(dott: string, query: string) {
+function tryDott(dott: string, query: string, replaceUrl: boolean) {
     let selectedDott = getDefaultDott(dott);
 
     if (!selectedDott) {
@@ -38,6 +38,6 @@ function tryDott(dott: string, query: string) {
         searchUrl = selectedDott.url;
     }
 
-    window.location.replace(searchUrl);
+    window.location[replaceUrl ? "replace" : "assign"](searchUrl);
     return true;
 }

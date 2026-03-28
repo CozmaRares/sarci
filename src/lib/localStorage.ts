@@ -32,12 +32,14 @@ export function deleteCustomDott(key: string): void {
     }
 }
 
-export function encodeDotts(data: string) {
+export function exportDotts() {
+    const data = JSON.stringify(customDotts);
     return btoa(data);
 }
 
 export function importDotts(data: string) {
-    const imported = JSON.parse(data);
+    const decoded = atob(data);
+    const imported = JSON.parse(decoded);
 
     for (const [key, value] of Object.entries(imported)) {
         addCustomDott(key, value as DottValueInput);

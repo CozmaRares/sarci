@@ -1,6 +1,6 @@
 import { For, Show, type JSX } from "solid-js";
-import type { Dott, DottValue } from "../logic/dotts";
-import { customDotts, hasCustomDotts } from "../logic/localStorage";
+import type { Dott, DottValue } from "@/lib/dotts";
+import { customDotts, hasCustomDotts } from "@/lib/localStorage";
 import Card from "./Card";
 import DottUrl from "./DottUrl";
 
