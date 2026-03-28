@@ -5,37 +5,39 @@ import MoveUpRight from "lucide-solid/icons/move-up-right";
 import Plus from "lucide-solid/icons/plus";
 
 const NAV_ITEMS = [
-  { hash: "", name: "Home", icon: Home },
-  { hash: "#dotts", name: "Available Dotts", icon: Layers },
-  { hash: "#custom", name: "Add Your Own", icon: Plus },
-  { hash: "#export", name: "Export Your Dotts", icon: MoveUpRight },
+    { hash: "", name: "Home", icon: Home },
+    { hash: "#dotts", name: "Available Dotts", icon: Layers },
+    { hash: "#custom", name: "Add Your Own", icon: Plus },
+    { hash: "#export", name: "Export Your Dotts", icon: MoveUpRight },
 ];
 
 export default function Nav() {
-  return (
-    <div class="border-text-accent card fixed right-0 bottom-0 left-0 z-50 border-t md:border px-2 py-2 shadow-lg backdrop-blur-md md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:rounded-full">
-      <nav>
-        <div class="flex flex-wrap gap-2 items-center justify-center md:flex-nowrap">
-          {NAV_ITEMS.map(item => {
-            const Icon = item.icon;
-            const isActive = currentHash() === item.hash;
+    return (
+        <div class="border-text-accent card fixed right-0 bottom-0 left-0 z-50 border-t px-2 py-2 shadow-lg backdrop-blur-md md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:rounded-full md:border">
+            <nav>
+                <div class="flex flex-wrap items-center justify-center gap-2 md:flex-nowrap">
+                    {NAV_ITEMS.map(item => {
+                        const Icon = item.icon;
+                        const isActive = currentHash() === item.hash;
 
-            return (
-              <a
-                href={item.hash.length == 0 ? "#" : item.hash}
-                class={`relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? "bg-card-secondary-bg text-card-secondary-text"
-                    : "hover:bg-card-secondary-bg/65 hover:text-card-secondary-text"
-                }`}
-              >
-                <Icon class="size-4" />
-                <span class="whitespace-nowrap">{item.name}</span>
-              </a>
-            );
-          })}
+                        return (
+                            <a
+                                href={item.hash.length == 0 ? "#" : item.hash}
+                                class={`relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                                    isActive
+                                        ? "bg-text-accent text-card-secondary-text"
+                                        : "hover:bg-text-accent/65 hover:text-card-secondary-text"
+                                }`}
+                            >
+                                <Icon class="size-4" />
+                                <span class="whitespace-nowrap">
+                                    {item.name}
+                                </span>
+                            </a>
+                        );
+                    })}
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-  );
+    );
 }

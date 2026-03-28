@@ -1,19 +1,19 @@
 type Props = {
-  url: string;
+    url: string;
 };
 
 export default function DottUrl({ url }: Props) {
-  const parts = url.split("%s");
+    const parts = url.split("%s");
 
-  if (parts.length === 1) return parts[0];
+    if (parts.length === 1) return parts[0];
 
-  const [url1, url2] = parts;
+    const [url1, url2] = parts;
 
-  return (
-    <>
-      {url1}
-      <span class="text-text-accent font-bold">%s</span>
-      {url2}
-    </>
-  );
+    return (
+        <>
+            {url1}
+            <span class="text-text-accent font-bold">%s</span>
+            {url2}
+        </>
+    );
 }
