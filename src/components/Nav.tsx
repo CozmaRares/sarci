@@ -13,7 +13,7 @@ const NAV_ITEMS = [
 
 export default function Nav() {
     return (
-        <div class="border-text-accent card fixed right-0 bottom-0 left-0 z-50 border-t px-2 py-2 shadow-lg backdrop-blur-md md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:rounded-full md:border">
+        <div class="border-accent color-secondary fixed right-0 bottom-0 left-0 z-50 border-t px-2 py-2 shadow-lg backdrop-blur-md md:right-auto md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:rounded-full md:border">
             <nav>
                 <div class="flex flex-wrap items-center justify-center gap-2 md:flex-nowrap">
                     {NAV_ITEMS.map(item => {
@@ -25,8 +25,8 @@ export default function Nav() {
                                 href={item.hash.length == 0 ? "#" : item.hash}
                                 class={`relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
                                     isActive
-                                        ? "bg-text-accent text-card-secondary-text"
-                                        : "hover:bg-text-accent/65 hover:text-card-secondary-text"
+                                        ? "color-accent"
+                                        : "hover:bg-accent/20"
                                 }`}
                             >
                                 <Icon class="size-4" />

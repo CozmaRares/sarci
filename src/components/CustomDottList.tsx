@@ -19,20 +19,18 @@ export default function CustomDottList({ endAdornment }: Props) {
                 <ul class="space-y-4">
                     <For each={Object.entries(customDotts)}>
                         {([key, value]) => (
-                            <li class="card-secondary flex flex-row items-center justify-between rounded-lg p-2 shadow-sm">
+                            <li class="color-tertiary flex flex-row items-center justify-between rounded-lg p-2 shadow-sm">
                                 <div>
-                                    <span class="bg-card-primary-bg w-fit rounded-md px-2 py-0.5 whitespace-nowrap">
+                                    <span class="bg-secondary w-fit rounded-md px-2 py-0.5 whitespace-nowrap">
                                         .{key}
                                     </span>{" "}
-                                    <span class="text-text-accent">
-                                        {value.name}
-                                    </span>
-                                    <div class="">
+                                    {value.name}
+                                    <div>
                                         <DottUrl url={value.url} />
                                     </div>
-                                    <div class="">
+                                    <div>
                                         {value.keepSlashes &&
-                                            "Keeps slashes in path"}
+                                            "Keeps slashes in path"}{" "}
                                     </div>
                                 </div>
                                 {endAdornment?.(key as Dott, value)}

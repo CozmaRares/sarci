@@ -63,9 +63,9 @@ function DottList({ category, dotts }: DottListProps) {
     return (
         <>
             <div class="flex flex-row items-center gap-2">
-                <span class="bg-text h-[2px] flex-grow"></span>
+                <span class="bg-primary-contrast h-[2px] flex-grow"></span>
                 <h2 class="text-2xl font-semibold">{category}</h2>
-                <span class="bg-text h-[2px] flex-grow"></span>
+                <span class="bg-primary-contrast h-[2px] flex-grow"></span>
             </div>
             <ul class="space-y-4">
                 <For each={dotts}>{dott => <DottItem {...dott} />}</For>
@@ -81,7 +81,7 @@ function DottItem({ dottKey, name, url, keepSlashes }: CategorizedDott) {
                 <div class="flex flex-row items-end gap-2">
                     <span class="font-mono text-lg font-bold">.{dottKey}</span>
                     {dottKey === defaultDott && (
-                        <span class="text-text-accent text-sm">(default)</span>
+                        <span class="text-accent text-sm">(default)</span>
                     )}
                 </div>
                 <div>

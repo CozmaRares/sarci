@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-    --color-text: #f2ebfa;
-    --color-text-accent: #9c97ff;
-    --color-background: #101319;
+    --color-primary: #030712;
+    --color-primary-contrast: #f2ebfa;
 
-    --color-card-primary-bg: #1c1f25;
-    --color-card-primary-text: #ebe8eb;
+    --color-secondary: #1b1f29;
+    --color-secondary-contrast: #ebe8eb;
 
-    --color-card-secondary-bg: #1b161e;
-    --color-card-secondary-text: #ebe8eb;
+    --color-tertiary: #10141e;
+    --color-tertiary-contrast: #ebe8eb;
 
-    --color-danger-bg: #e7000b;
-    --color-danger-text: #f2ebfa;
+    --color-accent: #00a6f4;
+    --color-accent-contrast: #000000;
+
+    --color-danger: #e7000b;
+    --color-danger-contrast: #f2ebfa;
 }
 
 @layer base {
     * {
-        accent-color: var(--color-text-accent);
+        accent-color: var(--color-accent);
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
@@ -33,14 +35,36 @@
     }
 }
 
-@layer utilities {
-    .card {
-        @apply bg-card-primary-bg text-card-primary-text;
-    }
+@utility color-primary {
+    @apply bg-primary text-primary-contrast;
+}
+@utility color-primary-inverse {
+    @apply bg-primary-contrast text-primary;
+}
 
-    .card-secondary {
-        @apply bg-card-secondary-bg text-card-secondary-text;
-    }
+@utility color-secondary {
+    @apply bg-secondary text-secondary-contrast;
+}
+@utility color-secondary-inverse {
+    @apply bg-secondary-contrast text-secondary;
+}
+
+@utility color-tertiary {
+    @apply bg-tertiary text-tertiary-contrast;
+}
+@utility color-tertiary-inverse {
+    @apply bg-tertiary-contrast text-tertiary;
+}
+
+@utility color-accent {
+    @apply bg-accent text-accent-contrast;
+}
+
+@utility color-danger {
+    @apply bg-danger text-danger-contrast;
+}
+@utility color-danger-inverse {
+    @apply bg-danger-contrast text-danger;
 }
 
 html,

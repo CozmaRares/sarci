@@ -58,9 +58,9 @@ export default function Home() {
                         </div>
 
                         <div class="flex flex-row items-center gap-2">
-                            <span class="bg-card-primary-text h-[2px] flex-grow"></span>
+                            <span class="bg-secondary-contrast h-[2px] flex-grow"></span>
                             OR
-                            <span class="bg-card-primary-text h-[2px] flex-grow"></span>
+                            <span class="bg-secondary-contrast h-[2px] flex-grow"></span>
                         </div>
 
                         <div class="space-y-3">
@@ -68,7 +68,7 @@ export default function Home() {
                                 Do a search to have the url be automatically
                                 picked up by your browser as a recently used
                                 search engine
-                                <span class="text-text-accent block font-bold italic">
+                                <span class="text-accent block font-bold italic">
                                     &gt; for when you can't add Sărci as a
                                     custom search engine
                                 </span>
@@ -77,14 +77,14 @@ export default function Home() {
                                 ref={searchFormRef}
                                 onsubmit={search}
                             >
-                                <div class="border-card-primary-text card-secondary isolate flex h-10 flex-row items-center rounded-md border">
+                                <div class="border-secondary-contrast color-tertiary isolate flex h-10 flex-row items-center rounded-md border">
                                     <input
                                         ref={searchInputRef}
                                         type="text"
                                         placeholder="cat videos .y"
-                                        class="placeholder:text-card-secondary-text/80 h-full flex-grow rounded-l-md px-3 py-2 font-mono"
+                                        class="placeholder:text-tertiary-contrast/80 h-full flex-grow rounded-l-md bg-transparent px-3 py-2 font-mono"
                                     />
-                                    <div class="bg-card-primary-text -z-10 h-full w-[1px]" />
+                                    <div class="bg-secondary-contrast -z-10 h-full w-[1px]" />
                                     <button class="flex aspect-square h-full items-center justify-center rounded-r-md hover:cursor-pointer">
                                         <Search class="size-6" />
                                     </button>

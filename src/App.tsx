@@ -53,7 +53,7 @@ export default function App() {
 
 function Layout({ children }: { children: JSX.Element }) {
     return (
-        <div class="bg-background text-text relative flex min-h-screen w-full max-w-full items-center justify-center p-12 pb-32">
+        <div class="color-primary relative flex min-h-screen w-full max-w-full items-center justify-center p-12 pb-32">
             {children}
             <Nav />
             <TailwindIndicator />

@@ -16,14 +16,14 @@ export default function CopyInput({ value }: Props) {
     };
 
     return (
-        <div class="border-card-primary-text card-secondary isolate flex h-10 flex-row items-center rounded-md border">
+        <div class="border-secondary-contrast color-tertiary isolate flex h-10 flex-row items-center rounded-md border">
             <input
                 type="text"
                 value={value}
                 readOnly
-                class="h-full flex-grow rounded-l-md px-3 py-2 font-mono"
+                class="h-full flex-grow rounded-l-md bg-transparent px-3 py-2 font-mono"
             />
-            <div class="bg-card-primary-text -z-10 h-full w-[1px]" />
+            <div class="bg-secondary-contrast -z-10 h-full w-[1px]" />
             <button
                 class="flex aspect-square h-full items-center justify-center rounded-r-md hover:cursor-pointer"
                 onclick={copy}

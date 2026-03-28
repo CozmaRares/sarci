@@ -9,7 +9,7 @@ export default function OutgoingLink({ href, children }: Props) {
     return (
         <a
             href={href}
-            class="text-text-accent inline-flex flex-row items-center underline"
+            class="text-accent inline-flex flex-row items-center underline"
             target="_blank"
             rel="noopener noreferrer"
         >
