@@ -11,7 +11,7 @@ export default function Export() {
         const base64 = exportDotts();
 
         const fullUrl = useFullUrl();
-        const importUrl = new URL(fullUrl());
+        const importUrl = fullUrl();
 
         importUrl.pathname = "/import";
         importUrl.searchParams.set(IMPORT_PARAM, base64);

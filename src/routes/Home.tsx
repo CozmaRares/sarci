@@ -3,7 +3,6 @@ import Card from "@/components/Card";
 import CopyInput from "@/components/CopyInput";
 import OutgoingLink from "@/components/OutgoingLink";
 import { QUERY_PARAM } from "@/lib/constants";
-import { redirect } from "@/lib/redirect";
 import { useFullUrl } from "@/hooks/useFullUrl";
 
 export default function Home() {
@@ -14,7 +13,12 @@ export default function Home() {
 
     const search = async (e: Event) => {
         e.preventDefault();
-        redirect(searchInputRef.value, false);
+
+        const current = fullUrl();
+        const query = searchInputRef.value;
+
+        current.searchParams.set(QUERY_PARAM, query);
+        window.location.assign(current);
     };
 
     return (

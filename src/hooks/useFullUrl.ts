@@ -5,7 +5,7 @@ export function useFullUrl() {
     const location = useLocation();
 
     return createMemo(() => {
-        return (
+        return new URL(
             window.location.origin +
             location.pathname +
             location.search +

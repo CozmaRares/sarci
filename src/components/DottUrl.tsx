@@ -10,10 +10,10 @@ export default function DottUrl({ url }: Props) {
     const [url1, url2] = parts;
 
     return (
-        <>
+        <span class="break-all">
             {url1}
             <span class="text-accent font-bold">%s</span>
             {url2}
-        </>
+        </span>
     );
 }
