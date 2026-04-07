@@ -100,8 +100,8 @@ const dotts = {
         category: "Manga/Anime",
     },
     tc: {
-        name: "ToonClash",
-        url: "https://toonclash.com/?s=%s&post_type=wp-manga",
+        name: "MangaClash",
+        url: "https://mangaclash.com/?s=%s&post_type=wp-manga",
         category: "Manga/Anime",
     },
     mdex: {
