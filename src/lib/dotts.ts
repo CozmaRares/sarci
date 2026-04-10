@@ -32,6 +32,11 @@ const dotts = {
         url: "https://music.youtube.com/playlist?list=LM",
         category: "Music",
     },
+    yms: {
+        name: "YouTube Music",
+        url: "https://music.youtube.com/search?q=%s",
+        category: "Music",
+    },
     gi: {
         name: "Google Images",
         url: "https://google.com/search?tbm=isch&q=%s&tbs=imgo:1",
@@ -129,6 +134,12 @@ const dotts = {
         url: "https://www.eon.ro/transmitere-index",
         category: "Misc",
     },
+    koto: {
+        name: "Anikoto TV",
+        url: "https://anikototv.to/filter?keyword=%s",
+        category: "Manga/Anime",
+    }
+
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
