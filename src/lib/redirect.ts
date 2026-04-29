@@ -27,12 +27,15 @@ function tryDott(dott: string, query: string): string | false {
         if (!selectedDott) return false;
     }
 
+    if (!selectedDott.url.includes("%s"))
+        return selectedDott.url;
+
     query = query.replace("." + dott, "").trim();
     query = encodeURIComponent(query);
 
     if (selectedDott.keepSlashes === true) query = query.replace(/%2F/g, "/");
 
-    if (selectedDott.url.includes("%s") && query.length != 0) 
+    if (query.length != 0)
         return selectedDott.url.replace("%s", query);
 
     if (selectedDott.empty) return selectedDott.empty;
