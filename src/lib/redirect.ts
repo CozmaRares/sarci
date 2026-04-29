@@ -3,18 +3,23 @@ import { getCustomDott } from "./localStorage";
 
 const DOTT_REGEX = /\.(\S+)/gi;
 
+
 export function redirect(query: string) {
-    const candidates = query.matchAll(DOTT_REGEX);
+    const candidates = Array.from(query.matchAll(DOTT_REGEX)).map(x => x[1].toLowerCase());
+
+    // push default dott
+    candidates.push(defaultDott);
 
     // keep trying for each candidate
-    for (const candidate of candidates)
-        if (tryDott(candidate[1].toLowerCase(), query)) return;
-
-    // use default
-    tryDott(defaultDott, query);
+    for (const candidate of candidates) {
+        const url = tryDott(candidate, query);
+        if (!url) continue;
+        window.location.replace(url);
+        break;
+    }
 }
 
-function tryDott(dott: string, query: string) {
+function tryDott(dott: string, query: string): string | false {
     let selectedDott = getDefaultDott(dott);
 
     if (!selectedDott) {
@@ -27,17 +32,11 @@ function tryDott(dott: string, query: string) {
 
     if (selectedDott.keepSlashes === true) query = query.replace(/%2F/g, "/");
 
-    let searchUrl: string;
+    if (selectedDott.url.includes("%s") && query.length != 0) 
+        return selectedDott.url.replace("%s", query);
 
-    if (query.length != 0) {
-        searchUrl = selectedDott.url.replace("%s", query);
-    } else if (selectedDott.url.includes("%s")) {
-        const url = new URL(selectedDott.url);
-        searchUrl = url.protocol + "//" + url.hostname;
-    } else {
-        searchUrl = selectedDott.url;
-    }
+    if (selectedDott.empty) return selectedDott.empty;
 
-    window.location.replace(searchUrl);
-    return true;
+    const url = new URL(selectedDott.url);
+    return url.protocol + "//" + url.hostname;
 }

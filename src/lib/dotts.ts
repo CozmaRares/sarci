@@ -14,6 +14,7 @@ export type DottValue = {
     url: string;
     category: Category;
     keepSlashes?: boolean;
+    empty?: string;
 };
 
 const dotts = {
@@ -138,6 +139,12 @@ const dotts = {
         name: "Anikoto TV",
         url: "https://anikototv.to/filter?keyword=%s",
         category: "Manga/Anime",
+        empty: "https://anikototv.to/home",
+    },
+    bnr: {
+        name: "Curs BNR",
+        url: "https://www.cursbnr.ro/",
+        category: "Misc",
     }
 
 } as const satisfies DottList;
