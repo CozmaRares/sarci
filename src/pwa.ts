@@ -22,6 +22,9 @@ async function doCheck(onNewVersion?: (remoteVersion: string) => void) {
             return;
         }
 
+        console.log("New version available", remoteVersion);
+        console.log("Current version", currentVersion);
+
         if (remoteVersion !== currentVersion) {
             if (isUpdateNotified) return;
 
