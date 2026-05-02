@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/((?!last-updated.txt).*)",
             "destination": "/"
         }
     ]
