@@ -42,6 +42,7 @@ export function addCustomDott(
     save = true,
 ): void {
     if (value.keepSlashes === false) delete value.keepSlashes;
+    if (value.empty === "") delete value.empty;
 
     customDotts[key] = { ...value, category: DEFAULT_CATEGORY };
 
@@ -71,9 +72,13 @@ function fromBase64(base64: string): string {
 
 export function exportDotts() {
     const entries = Object.entries(customDotts).map(([key, value]) =>
-        [key, value.name, value.url, ...(value.keepSlashes ? ["1"] : [])].join(
-            FIELD_SEP,
-        ),
+        [
+            key,
+            value.name,
+            value.url,
+            value.keepSlashes ? "1" : "",
+            value.empty ?? "",
+        ].join(FIELD_SEP),
     );
 
     let data = entries.join(RECORD_SEP);
@@ -94,12 +99,13 @@ export function importDotts(data: string) {
     const records = decoded.split(RECORD_SEP);
 
     records.forEach(record => {
-        const [key, name, url, keepSlashes] = record.split(FIELD_SEP);
+        const [key, name, url, keepSlashes, empty] = record.split(FIELD_SEP);
         if (key && name && url) {
             addCustomDott(key, {
                 name,
                 url,
                 keepSlashes: keepSlashes === "1",
+                empty: empty || undefined,
             });
         }
     });

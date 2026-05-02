@@ -28,6 +28,11 @@ export default function CustomDottList({ endAdornment }: Props) {
                                     <div>
                                         <DottUrl url={value.url} />
                                     </div>
+                                    <Show when={value.empty && value.url.includes("%s")}>
+                                        <div class="text-sm opacity-80">
+                                            Empty: <DottUrl url={value.empty!} />
+                                        </div>
+                                    </Show>
                                     <div>
                                         {value.keepSlashes &&
                                             "Keeps slashes in path"}{" "}

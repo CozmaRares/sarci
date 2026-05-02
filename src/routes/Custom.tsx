@@ -21,6 +21,7 @@ const defaultFormData = {
     key: "",
     name: "",
     url: "",
+    empty: "",
     keepSlashes: false,
 };
 
@@ -28,6 +29,7 @@ const defaultFormError = {
     key: null,
     name: null,
     url: null,
+    empty: null,
 };
 
 type FormData = typeof defaultFormData;
@@ -38,8 +40,8 @@ export default function Custom() {
     const [formError, setFormError] = createSignal<FormError>(defaultFormError);
 
     const editDott = (key: Dott, value: DottValue) => {
-        const { name, url, keepSlashes = false } = value;
-        setFormData({ key, name, url, keepSlashes });
+        const { name, url, keepSlashes = false, empty = "" } = value;
+        setFormData({ key, name, url, keepSlashes, empty });
     };
 
     return (
@@ -104,22 +106,30 @@ function DottForm({
     const submitForm = (e: Event) => {
         e.preventDefault();
 
-        const { key, name, url, keepSlashes } = formData();
+        const { key, name, url, keepSlashes, empty } = formData();
 
         let keyError: string | null = null;
         let nameError: string | null = null;
         let urlError: string | null = null;
+        let emptyError: string | null = null;
 
         if (key.length === 0) keyError = "Required";
         if (name.length === 0) nameError = "Required";
         if (url.length === 0) urlError = "Required";
         else if (!isUrlValid(url)) urlError = "Invalid URL";
 
-        setFormError({ key: keyError, name: nameError, url: urlError });
+        if (empty.length > 0 && !isUrlValid(empty)) emptyError = "Invalid URL";
+
+        setFormError({
+            key: keyError,
+            name: nameError,
+            url: urlError,
+            empty: emptyError,
+        });
 
         if (Object.values(formError()).some(Boolean)) return;
 
-        addCustomDott(key, { name, url, keepSlashes });
+        addCustomDott(key, { name, url, keepSlashes, empty });
         resetForm();
     };
 
@@ -237,6 +247,45 @@ function DottForm({
                         <p>
                             For example:{" "}
                             <DottUrl url="https://google.com/search?q=%s" />
+                        </p>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex flex-row items-center gap-2">
+                        <label
+                            for="empty"
+                            class="block"
+                        >
+                            Empty URL (optional)
+                        </label>
+
+                        <Show when={formError().empty}>
+                            <div class="text-danger">({formError().empty})</div>
+                        </Show>
+                    </div>
+                    <input
+                        type="text"
+                        name="empty"
+                        id="empty"
+                        class={`color-tertiary w-full rounded-md border p-2 ${
+                            formError().empty === null
+                                ? "border-secondary-contrast"
+                                : "border-danger"
+                        }`}
+                        placeholder="e.g., https://anikototv.to/home"
+                        value={formData().empty}
+                        onChange={e =>
+                            setFormData(prev => ({
+                                ...prev,
+                                empty: e.target.value,
+                            }))
+                        }
+                    />
+                    <div class="">
+                        <p>
+                            Redirect here when the dott is used without a search
+                            term. Only applies to dotts containing{" "}
+                            <span class="text-accent font-bold">%s</span>.
                         </p>
                     </div>
                 </div>

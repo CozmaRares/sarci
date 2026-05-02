@@ -72,7 +72,25 @@ describe("Import/Export Logic", () => {
             expect(customDotts[key].name).toBe(value.name);
             expect(customDotts[key].url).toBe(value.url);
             expect(!!customDotts[key].keepSlashes).toBe(!!value.keepSlashes);
+            expect(customDotts[key].empty).toBe(value.empty);
         });
+    });
+
+    it("should handle empty field in export and import", () => {
+        const key = "empty-test";
+        const dott = {
+            name: "Empty Test",
+            url: "https://example.com/search?q=%s",
+            empty: "https://example.com/home",
+        };
+        addCustomDott(key, dott);
+
+        const exported = exportDotts();
+        deleteAllDotts();
+        importDotts(exported);
+
+        expect(customDotts[key]).toBeDefined();
+        expect(customDotts[key].empty).toBe(dott.empty);
     });
 
     it("should handle unicode characters in names and urls", () => {

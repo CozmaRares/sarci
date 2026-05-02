@@ -31,6 +31,7 @@ type CategorizedDott = {
     name: string;
     url: string;
     keepSlashes?: boolean;
+    empty?: string;
 };
 
 function getCategories() {
@@ -48,6 +49,7 @@ function getCategories() {
             name: value.name,
             url: value.url,
             keepSlashes: value.keepSlashes,
+            empty: value.empty,
         });
     }
 
@@ -74,7 +76,7 @@ function DottList({ category, dotts }: DottListProps) {
     );
 }
 
-function DottItem({ dottKey, name, url, keepSlashes }: CategorizedDott) {
+function DottItem({ dottKey, name, url, keepSlashes, empty }: CategorizedDott) {
     return (
         <li>
             <Card>
@@ -92,6 +94,14 @@ function DottItem({ dottKey, name, url, keepSlashes }: CategorizedDott) {
                             <DottUrl url={url} />
                         </span>
                     </div>
+                    {empty && url.includes("%s") && (
+                        <div style="word-break: break-all;">
+                            Empty URL:{" "}
+                            <span class="font-mono">
+                                <DottUrl url={empty} />
+                            </span>
+                        </div>
+                    )}
                     {keepSlashes && <div>Keeps slashes in path</div>}
                 </div>
             </Card>
