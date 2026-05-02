@@ -39,7 +39,10 @@ function Layout({ children }: { children: JSX.Element }) {
                         </span>
                     </div>
                     <button
-                        onClick={() => updateServiceWorker(remoteVersion())}
+                        onClick={() => {
+                            updateServiceWorker(remoteVersion());
+                            setShowUpdate(false);
+                        }}
                         class="rounded-lg bg-white px-4 py-2 text-xs font-bold text-black transition-colors hover:bg-slate-300"
                     >
                         Refresh

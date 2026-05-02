@@ -3,14 +3,48 @@ import { registerSW } from "virtual:pwa-register";
 import { VERSION_KEY } from "./lib/constants";
 
 let registration: ServiceWorkerRegistration | undefined;
+let isUpdateNotified = false;
+
+async function doCheck(onNewVersion?: (remoteVersion: string) => void) {
+    const currentVersion = localStorage.getItem(VERSION_KEY);
+
+    try {
+        const response = await fetch("/last-updated.txt", {
+            cache: "no-store",
+        });
+        if (!response.ok) return;
+
+        const remoteVersion = (await response.text()).trim();
+
+        if (currentVersion === null) {
+            // First install: silently seed version
+            localStorage.setItem(VERSION_KEY, remoteVersion);
+            return;
+        }
+
+        if (remoteVersion !== currentVersion) {
+            if (isUpdateNotified) return;
+
+            // Force SW to check for update if it hasn't yet
+            if (registration) {
+                await registration.update();
+            }
+            isUpdateNotified = true;
+            onNewVersion?.(remoteVersion);
+        }
+    } catch (e) {
+        console.error("Failed to check for updates", e);
+    }
+}
 
 const updateSW = registerSW({
     immediate: true,
     onRegisteredSW(_swUrl: string, r: ServiceWorkerRegistration) {
         registration = r;
     },
-    onNeedRefresh() {
-        document.dispatchEvent(new CustomEvent("pwa-update-available"));
+    async onNeedRefresh() {
+        if (isUpdateNotified) return;
+        doCheck();
     },
 });
 
@@ -20,32 +54,6 @@ export async function updateServiceWorker(remoteVersion: string) {
     window.location.reload();
 }
 
-export async function checkVersion(
-    showUpdateCB: (remoteVersion: string) => void,
-) {
-    const currentVersion = localStorage.getItem(VERSION_KEY);
-
-    document.addEventListener("pwa-update-available", () => {
-        showUpdateCB(currentVersion || "unknown");
-    });
-
-    try {
-        const response = await fetch("/last-updated.txt", {
-            cache: "no-store",
-        });
-        if (!response.ok) {
-            return;
-        }
-
-        const remoteVersion = await response.text().then(r => r.trim());
-        console.log({ remoteVersion, currentVersion });
-        if (remoteVersion !== currentVersion) {
-            if (registration) {
-                await registration.update();
-            }
-            showUpdateCB(remoteVersion);
-        }
-    } catch (e) {
-        console.error("Failed to check for updates", e);
-    }
+export function checkVersion(showUpdateCB: (remoteVersion: string) => void) {
+    return doCheck(showUpdateCB);
 }
