@@ -1,0 +1,4 @@
+#!/bin/sh
+COMMIT_HASH=$(git rev-parse HEAD 2>/dev/null || echo "initial")
+echo "$COMMIT_HASH" > public/last-updated.txt
+git add public/last-updated.txt

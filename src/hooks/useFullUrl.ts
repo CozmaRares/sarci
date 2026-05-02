@@ -7,9 +7,9 @@ export function useFullUrl() {
     return createMemo(() => {
         return new URL(
             window.location.origin +
-            location.pathname +
-            location.search +
-            location.hash
+                location.pathname +
+                location.search +
+                location.hash,
         );
     });
 }

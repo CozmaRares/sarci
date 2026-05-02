@@ -25,7 +25,7 @@ export default function CopyInput({ value }: Props) {
             />
             <div class="bg-secondary-contrast -z-10 h-full w-[1px]" />
             <button
-                class="flex aspect-square h-full items-center justify-center rounded-r-md hover:cursor-pointer"
+                class="flex aspect-square h-full items-center justify-center rounded-r-md"
                 onclick={copy}
             >
                 <Show

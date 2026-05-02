@@ -94,7 +94,7 @@ export default function Home() {
                                         class="placeholder:text-tertiary-contrast/80 h-full flex-grow rounded-l-md bg-transparent px-3 py-2 font-mono"
                                     />
                                     <div class="bg-secondary-contrast -z-10 h-full w-[1px]" />
-                                    <button class="flex aspect-square h-full items-center justify-center rounded-r-md hover:cursor-pointer">
+                                    <button class="flex aspect-square h-full items-center justify-center rounded-r-md">
                                         <Search class="size-6" />
                                     </button>
                                 </div>

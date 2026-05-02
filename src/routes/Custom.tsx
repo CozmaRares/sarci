@@ -62,13 +62,13 @@ export default function Custom() {
                 endAdornment={(key, value) => (
                     <div class="flex gap-2">
                         <button
-                            class="border-primary-contrast hover:color-primary-inverse cursor-pointer rounded-md border p-2"
+                            class="border-primary-contrast hover:color-primary-inverse rounded-md border p-2"
                             onclick={() => editDott(key, value)}
                         >
                             <Pencil class="size-4" />
                         </button>
                         <button
-                            class="border-danger text-danger accent-danger hover:color-danger cursor-pointer rounded-md border p-2"
+                            class="border-danger text-danger accent-danger hover:color-danger rounded-md border p-2"
                             onclick={() => deleteCustomDott(key)}
                         >
                             <Trash2 class="size-4" />
@@ -312,13 +312,13 @@ function DottForm({
                 </div>
                 <button
                     type="submit"
-                    class="hover:color-tertiary bg-primary w-full cursor-pointer rounded-md p-2 transition-colors"
+                    class="hover:color-tertiary bg-primary w-full rounded-md p-2 transition-colors"
                 >
                     {isAlreadyDefined() ? "Update" : "Add"} Dott
                 </button>
                 <button
                     type="button"
-                    class="hover:color-danger bg-danger/80 w-full cursor-pointer rounded-md p-2 transition-colors"
+                    class="hover:color-danger bg-danger/80 w-full rounded-md p-2 transition-colors"
                     onclick={resetForm}
                 >
                     Reset Form

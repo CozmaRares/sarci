@@ -145,8 +145,7 @@ const dotts = {
         name: "Curs BNR",
         url: "https://www.cursbnr.ro/",
         category: "Misc",
-    }
-
+    },
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
