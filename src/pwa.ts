@@ -33,14 +33,17 @@ export async function checkVersion(
         const response = await fetch("/last-updated.txt", {
             cache: "no-store",
         });
-        if (response.ok) {
-            const remoteVersion = (await response.text()).trim();
-            if (remoteVersion !== currentVersion) {
-                if (registration) {
-                    await registration.update();
-                }
-                showUpdateCB(remoteVersion);
+        if (!response.ok) {
+            return;
+        }
+
+        const remoteVersion = await response.text().then(r => r.trim());
+        console.log({ remoteVersion, currentVersion });
+        if (remoteVersion !== currentVersion) {
+            if (registration) {
+                await registration.update();
             }
+            showUpdateCB(remoteVersion);
         }
     } catch (e) {
         console.error("Failed to check for updates", e);
