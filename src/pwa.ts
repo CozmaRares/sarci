@@ -22,19 +22,23 @@ async function doCheck(onNewVersion?: (remoteVersion: string) => void) {
             return;
         }
 
-        console.log("New version available", remoteVersion);
         console.log("Current version", currentVersion);
 
-        if (remoteVersion !== currentVersion) {
-            if (isUpdateNotified) return;
-
-            // Force SW to check for update if it hasn't yet
-            if (registration) {
-                await registration.update();
-            }
-            isUpdateNotified = true;
-            onNewVersion?.(remoteVersion);
+        if (remoteVersion === currentVersion) {
+            return;
         }
+
+        if (isUpdateNotified) return;
+
+        console.log("New version available", remoteVersion);
+
+        // Force SW to check for update if it hasn't yet
+        if (registration) {
+            await registration.update();
+        }
+
+        isUpdateNotified = true;
+        onNewVersion?.(remoteVersion);
     } catch (e) {
         console.error("Failed to check for updates", e);
     }
