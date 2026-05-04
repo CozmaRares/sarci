@@ -25,17 +25,6 @@ export default defineConfig({
             workbox: {
                 globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
                 navigateFallback: "index.html",
-                runtimeCaching: [
-                    {
-                        urlPattern: ({ request }) =>
-                            request.mode === "navigate",
-                        handler: "CacheFirst",
-                        options: {
-                            cacheName: "navigation",
-                            expiration: { maxEntries: 1 },
-                        },
-                    },
-                ],
             },
         }),
         tailwindcss(),

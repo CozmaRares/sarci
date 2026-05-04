@@ -9,7 +9,7 @@ async function doCheck(onNewVersion?: (remoteVersion: string) => void) {
     const currentVersion = localStorage.getItem(VERSION_KEY);
 
     try {
-        const response = await fetch("/last-updated.txt", {
+        const response = await fetch("/version.txt", {
             cache: "no-store",
         });
         if (!response.ok) return;

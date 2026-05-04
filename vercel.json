@@ -3,7 +3,7 @@
     "trailingSlash": false,
     "headers": [
         {
-            "source": "/last-updated.txt",
+            "source": "/version.txt",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -22,16 +22,6 @@
         }
     ],
     "rewrites": [
-        { "source": "/dotts", "destination": "/index.html" },
-        { "source": "/custom", "destination": "/index.html" },
-        { "source": "/export", "destination": "/index.html" },
-        { "source": "/import", "destination": "/index.html" }
-    ],
-    "redirects": [
-        {
-            "source": "/((?!dotts|custom|export|import|last-updated.txt|sw.js|workbox-.*.js|manifest.webmanifest|icon.svg|search.svg|opensearch.xml|assets/|$).*)",
-            "destination": "/",
-            "permanent": false
-        }
+        { "source": "/(.*)", "destination": "/index.html" }
     ]
 }
