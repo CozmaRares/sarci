@@ -30,13 +30,9 @@ const dotts = {
     },
     ym: {
         name: "YouTube Music Liked Music Playlist",
-        url: "https://music.youtube.com/playlist?list=LM",
-        category: "Music",
-    },
-    yms: {
-        name: "YouTube Music",
         url: "https://music.youtube.com/search?q=%s",
         category: "Music",
+        empty: "https://music.youtube.com/playlist?list=LM",
     },
     gi: {
         name: "Google Images",
@@ -58,16 +54,19 @@ const dotts = {
         url: "https://github.com/%s",
         keepSlashes: true,
         category: "Code",
+        empty: "https://github.com/cozmarares",
     },
     ghs: {
         name: "GitHub Search",
         url: "https://github.com/search?q=%s",
         category: "Code",
+        empty: "https://github.com/search",
     },
     mdn: {
         name: "MDN Web Docs",
         url: "https://developer.mozilla.org/search?q=%s",
         category: "Code",
+        empty: "https://developer.mozilla.org/search",
     },
     can: {
         name: "Can I Use",
@@ -78,16 +77,19 @@ const dotts = {
         name: "Google Translate (auto to en)",
         url: "https://translate.google.com/?sl=auto&tl=en&text=%s&op=translate",
         category: "Misc",
+        empty: "https://translate.google.com/?sl=auto&tl=en&op=translate",
     },
     ter: {
         name: "Google Translate (en to ro)",
         url: "https://translate.google.com/?sl=en&tl=ro&text=%s&op=translate",
         category: "Misc",
+        empty: "https://translate.google.com/?sl=en&tl=ro&op=translate",
     },
     tre: {
         name: "Google Translate (ro to en)",
         url: "https://translate.google.com/?sl=ro&tl=en&text=%s&op=translate",
         category: "Misc",
+        empty: "https://translate.google.com/?sl=ro&tl=en&op=translate",
     },
     ac: {
         name: "AC UTCN",
@@ -129,11 +131,6 @@ const dotts = {
         name: "ChatGPT",
         url: "https://chatgpt.com/?prompt=%s",
         category: "AI",
-    },
-    eonidx: {
-        name: "E-ON Transmitere Index",
-        url: "https://www.eon.ro/transmitere-index",
-        category: "Misc",
     },
     koto: {
         name: "Anikoto TV",
