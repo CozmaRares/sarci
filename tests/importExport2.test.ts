@@ -20,7 +20,7 @@ import {
     deleteCustomDott,
 } from "../src/lib/localStorage";
 
-describe("Import/Export Logic", () => {
+describe("Import/Export Logic against search_engines.txt", () => {
     const deleteAllDotts = () => {
         const keys = Object.keys(customDotts);
         keys.forEach((key, idx) =>

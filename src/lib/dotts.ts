@@ -5,6 +5,7 @@ type Category =
     | "Code"
     | "Misc"
     | "Manga/Anime"
+    | "Personal"
     | "Custom";
 
 export type DottList = Record<string, DottValue>;
@@ -55,6 +56,13 @@ const dotts = {
         keepSlashes: true,
         category: "Code",
         empty: "https://github.com/cozmarares",
+    },
+    gl: {
+        name: "GitLab Repo",
+        url: "https://gitlab.com/%s",
+        keepSlashes: true,
+        category: "Code",
+        empty: "https://gitlab.com/cozmarares",
     },
     ghs: {
         name: "GitHub Search",
@@ -142,6 +150,11 @@ const dotts = {
         name: "Curs BNR",
         url: "https://www.cursbnr.ro/",
         category: "Misc",
+    },
+    marc: {
+        name: "Bucmarc",
+        url: "http://bucmarc.raru.dev/api/mark/save/%s",
+        category: "Personal",
     },
 } as const satisfies DottList;
 

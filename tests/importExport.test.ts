@@ -1,5 +1,3 @@
-import { readFileSync } from "fs";
-import path from "path";
 import { describe, it, expect, vi, afterAll } from "vitest";
 
 const localStorageMock = (() => {
