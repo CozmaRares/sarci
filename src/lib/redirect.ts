@@ -1,4 +1,4 @@
-import { defaultDott, getDefaultDott } from "./dotts";
+import { defaultDott, getSystemDott } from "./dotts";
 import { getCustomDott } from "./localStorage";
 
 const DOTT_REGEX = /\.(\S+)/gi;
@@ -21,10 +21,10 @@ export function redirect(query: string) {
 }
 
 function tryDott(dott: string, query: string): string | false {
-    let selectedDott = getDefaultDott(dott);
+    let selectedDott = getCustomDott(dott);
 
     if (!selectedDott) {
-        selectedDott = getCustomDott(dott);
+        selectedDott = getSystemDott(dott);
         if (!selectedDott) return false;
     }
 

@@ -163,7 +163,7 @@ export { typedDotts as dotts };
 
 export const defaultDott = "g" satisfies Dott;
 
-export function getDefaultDott(dott: string): DottValue | undefined {
+export function getSystemDott(dott: string): DottValue | undefined {
     if (!(dott in dotts)) return undefined;
     const selectedDott = dotts[dott as Dott];
     return selectedDott;
