@@ -115,20 +115,20 @@ const dotts = {
         url: "https://ctpcj.ro/index.php/ro/orare-linii/linii-urbane/linia-%s",
         category: "Manga/Anime",
     },
-    tc: {
-        name: "MangaClash",
-        url: "https://mangaclash.com/?s=%s&post_type=wp-manga",
+    ms: {
+        name: "MangaSkin",
+        url: "https://manga.skin/",
+        category: "Manga/Anime",
+    },
+    we: {
+        name: "WeebCentral",
+        url: "https://weebcentral.com/search?text=%s",
         category: "Manga/Anime",
     },
     mdex: {
         name: "MangaDex",
         url: "https://mangadex.org/search?q=%s",
         category: "Manga/Anime",
-    },
-    formctp: {
-        name: "Decontare CTP",
-        url: "https://formforyou.utcluj.ro/#",
-        category: "Misc",
     },
     ss: {
         name: "Sărci",
