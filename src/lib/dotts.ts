@@ -5,7 +5,6 @@ type Category =
     | "Code"
     | "Misc"
     | "Manga/Anime"
-    | "Personal"
     | "Custom";
 
 export type DottList = Record<string, DottValue>;
@@ -113,7 +112,7 @@ const dotts = {
     ctp: {
         name: "CTP Cluj",
         url: "https://ctpcj.ro/index.php/ro/orare-linii/linii-urbane/linia-%s",
-        category: "Manga/Anime",
+        category: "Misc",
     },
     ms: {
         name: "MangaSkin",
@@ -154,7 +153,12 @@ const dotts = {
     marc: {
         name: "Bucmarc",
         url: "http://bucmarc.raru.dev/api/mark/save/%s",
-        category: "Personal",
+        category: "Misc",
+    },
+    marcn: {
+        name: "Bucmarc (no redirect)",
+        url: "http://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
+        category: "Misc",
     },
 } as const satisfies DottList;
 
