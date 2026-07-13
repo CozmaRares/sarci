@@ -87,15 +87,6 @@ type FormProps = {
     setFormError: Setter<FormError>;
 };
 
-function isUrlValid(url: string) {
-    try {
-        new URL(url);
-        return true;
-    } catch {
-        return false;
-    }
-}
-
 function DottForm({
     formData,
     setFormData,
@@ -116,9 +107,6 @@ function DottForm({
         if (key.length === 0) keyError = "Required";
         if (name.length === 0) nameError = "Required";
         if (url.length === 0) urlError = "Required";
-        else if (!isUrlValid(url)) urlError = "Invalid URL";
-
-        if (empty.length > 0 && !isUrlValid(empty)) emptyError = "Invalid URL";
 
         setFormError({
             key: keyError,
