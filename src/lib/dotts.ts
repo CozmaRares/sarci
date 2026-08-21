@@ -160,6 +160,11 @@ const dotts = {
         url: "http://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
         category: "Misc",
     },
+    norman: {
+        name: "Norman Whatley",
+        url: "https://www.twitch.tv/noarmwhatley",
+        category: "Misc",
+    }
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
