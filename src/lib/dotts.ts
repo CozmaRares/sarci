@@ -152,19 +152,21 @@ const dotts = {
     },
     marc: {
         name: "Bucmarc",
-        url: "http://bucmarc.raru.dev/api/mark/save/%s",
+        url: "https://bucmarc.raru.dev/api/mark/save/%s",
         category: "Misc",
     },
     marcn: {
         name: "Bucmarc (no redirect)",
-        url: "http://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
+        url: "https://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
         category: "Misc",
     },
-    norman: {
-        name: "Norman Whatley",
-        url: "https://www.twitch.tv/noarmwhatley",
+    tw: {
+        name: "Twitch",
+        url: "https://www.twitch.tv/%s",
+        empty: "https://www.twitch.tv/noarmwhatley",
+        keepSlashes: true,
         category: "Misc",
-    }
+    },
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
