@@ -160,7 +160,7 @@ const dotts = {
         url: "https://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
         category: "Misc",
     },
-    tw: {
+    ttv: {
         name: "Twitch",
         url: "https://www.twitch.tv/%s",
         empty: "https://www.twitch.tv/noarmwhatley",
