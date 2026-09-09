@@ -138,6 +138,7 @@ const dotts = {
         name: "ChatGPT",
         url: "https://chatgpt.com/?prompt=%s",
         category: "AI",
+        empty: "https://chatgpt.com/?temporary-chat=true",
     },
     koto: {
         name: "Anikoto TV",
