@@ -108,6 +108,7 @@ const dotts = {
         name: "My Anime List",
         url: "https://myanimelist.net/anime.php?q=%s",
         category: "Manga/Anime",
+        empty: "https://myanimelist.net/anime/season",
     },
     ctp: {
         name: "CTP Cluj",
@@ -151,19 +152,19 @@ const dotts = {
         url: "https://www.cursbnr.ro/",
         category: "Misc",
     },
-    marc: {
+    marcr: {
         name: "Bucmarc",
         url: "https://bucmarc.raru.dev/api/mark/save/%s",
         category: "Misc",
     },
-    marcn: {
+    marc: {
         name: "Bucmarc (no redirect)",
         url: "https://bucmarc.raru.dev/api/mark/save/%s?no-redirect",
         category: "Misc",
     },
     ttv: {
         name: "Twitch",
-        url: "https://www.twitch.tv/%s",
+        url: "https://www.twitch.tv/search?term=%s",
         empty: "https://www.twitch.tv/noarmwhatley",
         keepSlashes: true,
         category: "Misc",
