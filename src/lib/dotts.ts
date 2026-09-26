@@ -165,7 +165,7 @@ const dotts = {
     ttv: {
         name: "Twitch",
         url: "https://www.twitch.tv/search?term=%s",
-        empty: "https://www.twitch.tv/noarmwhatley",
+        empty: "https://www.twitch.tv/noarmwhatley247",
         keepSlashes: true,
         category: "Misc",
     },
