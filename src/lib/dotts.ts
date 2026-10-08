@@ -115,11 +115,6 @@ const dotts = {
         url: "https://ctpcj.ro/index.php/ro/orare-linii/linii-urbane/linia-%s",
         category: "Misc",
     },
-    ms: {
-        name: "MangaSkin",
-        url: "https://manga.skin/",
-        category: "Manga/Anime",
-    },
     we: {
         name: "WeebCentral",
         url: "https://weebcentral.com/search?text=%s",
@@ -169,6 +164,16 @@ const dotts = {
         keepSlashes: true,
         category: "Misc",
     },
+    eon: {
+        name:"E.ON",
+        url:"https://www.eon.ro/transmitere-index",
+        category:"Misc",
+    },
+    cx : {
+        name: "Comix",
+        url: "https://comix.to/browse?q=%s&sort=relevance%3Adesc",
+        category: "Manga/Anime",
+    }
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
