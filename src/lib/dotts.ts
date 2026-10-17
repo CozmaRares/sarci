@@ -173,6 +173,11 @@ const dotts = {
         name: "Comix",
         url: "https://comix.to/browse?q=%s&sort=relevance%3Adesc",
         category: "Manga/Anime",
+    },
+    stw: {
+        name:"Google Stopwatch",
+        url:"https://www.google.com/search?q=stopwatch",
+        category:"Misc",
     }
 } as const satisfies DottList;
 
