@@ -174,7 +174,7 @@ const dotts = {
         url: "https://comix.to/browse?q=%s&sort=relevance%3Adesc",
         category: "Manga/Anime",
     },
-    stw: {
+    gsw: {
         name:"Google Stopwatch",
         url:"https://www.google.com/search?q=stopwatch",
         category:"Misc",
