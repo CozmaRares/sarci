@@ -98,9 +98,9 @@ const dotts = {
         category: "Misc",
         empty: "https://translate.google.com/?sl=ro&tl=en&op=translate",
     },
-    ac: {
-        name: "AC UTCN",
-        url: "https://ac.utcluj.ro/%s.html",
+    orar: {
+        name: "Orar",
+        url: "https://docs.google.com/spreadsheets/d/1xssn6PC5ODqIjowpPb8lQ6zphXDOzZsYR4wOw9yPfEI/edit?pli=1&gid=1829921421#gid=1829921421",
         keepSlashes: true,
         category: "Misc",
     },
