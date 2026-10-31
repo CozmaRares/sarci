@@ -165,20 +165,30 @@ const dotts = {
         category: "Misc",
     },
     eon: {
-        name:"E.ON",
-        url:"https://www.eon.ro/transmitere-index",
-        category:"Misc",
+        name: "E.ON",
+        url: "https://www.eon.ro/transmitere-index",
+        category: "Misc",
     },
-    cx : {
+    cx: {
         name: "Comix",
         url: "https://comix.to/browse?q=%s&sort=relevance%3Adesc",
         category: "Manga/Anime",
     },
     gsw: {
-        name:"Google Stopwatch",
-        url:"https://www.google.com/search?q=stopwatch",
-        category:"Misc",
-    }
+        name: "Google Stopwatch",
+        url: "https://www.google.com/search?q=stopwatch",
+        category: "Misc",
+    },
+    netstat: {
+        name: "Netstat W10 driver",
+        url: "https://support-netstat.ro/en/NETSTAT-W10/",
+        category: "Misc",
+    },
+    formctp: {
+        name: "Form Decont CTP",
+        url: "https://formforyou.utcluj.ro/ctp",
+        category: "Misc",
+    },
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
