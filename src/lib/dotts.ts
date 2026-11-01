@@ -194,7 +194,13 @@ const dotts = {
         url: "https://www.google.com/search?q=%s%20benchmark",
         category: "Misc"
 
+    },
+    tt: {
+        name: "tt",
+        url: "https://teams.cloud.microsoft",
+        category: "Misc",
     }
+
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
