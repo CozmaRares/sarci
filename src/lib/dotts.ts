@@ -189,6 +189,12 @@ const dotts = {
         url: "https://formforyou.utcluj.ro/ctp",
         category: "Misc",
     },
+    b: {
+        name: "Benchmark",
+        url: "https://www.google.com/search?q=%s%20benchmark",
+        category: "Misc"
+
+    }
 } as const satisfies DottList;
 
 const typedDotts: Record<Dott, DottValue> = dotts;
