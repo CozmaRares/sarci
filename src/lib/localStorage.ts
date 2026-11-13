@@ -2,7 +2,6 @@ import { createMutable } from "solid-js/store";
 import type { DottList, DottValue } from "./dotts";
 
 const CUSTOM_DOTTS_KEY = "customDotts";
-const DEFAULT_CATEGORY = "Custom";
 const FIELD_SEP = "\x01";
 const RECORD_SEP = "\x02";
 
@@ -22,8 +21,6 @@ const DICTIONARY: [string, string][] = [
     ["%s", "\x12"],
 ];
 
-export type DottValueInput = Omit<DottValue, "category">;
-
 export const customDotts = createMutable<DottList>(
     JSON.parse(localStorage.getItem(CUSTOM_DOTTS_KEY) ?? "{}"),
 );
@@ -38,13 +35,13 @@ function saveCustomDotts(): void {
 
 export function addCustomDott(
     key: string,
-    value: DottValueInput,
+    value: DottValue,
     save = true,
 ): void {
     if (value.keepSlashes === false) delete value.keepSlashes;
     if (value.empty === "") delete value.empty;
 
-    customDotts[key] = { ...value, category: DEFAULT_CATEGORY };
+    customDotts[key] = { ...value };
 
     if (save) saveCustomDotts();
 }
